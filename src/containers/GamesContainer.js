@@ -39,7 +39,7 @@ const GamesContainer = function() {
     return(
         <div>
             <Header />
-            <GamesList games={games} />
+            {games!==[] ?<GamesList games={games} /> : null}
         </div>
     )   
 }

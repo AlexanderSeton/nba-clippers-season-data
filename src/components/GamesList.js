@@ -1,5 +1,6 @@
 import React from "react";
 import Game from "./Game";
+import "./static/GameList.css";
 
 const GamesList = function({games}) {
 
@@ -8,7 +9,7 @@ const GamesList = function({games}) {
     })
 
     return(
-        <div>
+        <div className="games-div">
             {gameItems}
         </div>
     )

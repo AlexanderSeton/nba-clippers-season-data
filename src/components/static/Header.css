@@ -1,0 +1,22 @@
+.header {
+}
+
+.nav-links {
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid black;
+}
+
+.nav-link {
+    padding: 0 2%;
+    
+}
+
+.nav-link-h1 {
+    color: black;
+    text-decoration: none;
+}
+
+.main-title {
+    text-align: center;
+}
