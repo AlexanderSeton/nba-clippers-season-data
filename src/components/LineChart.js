@@ -1,6 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-3";
 
+
 const LineChart = function({ games }) {
 
     const generateLineChartData = function() {
@@ -13,7 +14,7 @@ const LineChart = function({ games }) {
                     fill: false,
                     borderColor: "black",
                     tension: 0.1
-                }
+                }              
             ]
         };
         for (let game of games) {
