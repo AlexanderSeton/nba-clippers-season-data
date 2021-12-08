@@ -4,9 +4,9 @@ import "./static/Game.css";
 
 const Game = function({game}) {
 
-    const convertData = function() {
+    const convertDate = function() {
         const date = new Date(game.date);
-        const localDate = date.toLocaleDateString("en-GB");
+        const localDate = date.toDateString("en-GB").substr(4);
         return localDate;
     }
 
@@ -36,7 +36,7 @@ const Game = function({game}) {
 
     return(
         <div className="game-div">
-            <p>{convertData()}</p>
+            <p>{convertDate()}</p>
             <hr />
             <p style={{ color: checkHomeResult() }}>
                 <strong>Home: </strong>{game.home_team.name} - {game.home_team_score}

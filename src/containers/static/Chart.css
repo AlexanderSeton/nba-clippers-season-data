@@ -1,0 +1,26 @@
+.charts-div {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100vw;
+    height: 60vh;
+    align-items: center;
+}
+
+.pie-chart-div {
+    /* border: 1px solid red; */
+    width: 30vw;
+    margin: 1%;
+    margin-right: 1%;
+    padding: 2% 2%;
+    background-color: lavender;
+}
+
+.bar-chart-div {
+    /* border: 1px solid red; */
+    width: 70vw;
+    margin: 1%;
+    margin-left: 1%;
+    padding: 2% 2%;
+    background-color: lavender;
+}

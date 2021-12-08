@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
-import { Pie } from "react-chartjs-3";
+import "./static/Chart.css";
+import PieChart from "../components/PieChart";
+import BarChart from "../components/BarChart";
 
 const Chart = function() {
 
@@ -8,7 +10,6 @@ const Chart = function() {
     const [games, setGames] = useState([]);
 
     const firstUpdate = useRef(true);
-    const firstUpdate2 = useRef(true);
 
     useEffect(() => {
         getCurrentDate();
@@ -22,21 +23,22 @@ const Chart = function() {
         getData();
     }, [date])
 
-    useEffect(() => {
-        if (firstUpdate2.current) {
-            firstUpdate2.current = false;
-            return;
-        }
-        generatePieChartData();
-    }, [games])
-
     const getCurrentDate = async function() {
-        const currentDate = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        let currentDate = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        let day = parseInt(currentDate.substr(8, 9));
+        day -= 1;
+        const singleNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        if (singleNumbers.includes(day)) {
+            day = "0" + day;
+        }
+        currentDate = currentDate.substr(0, 8) + day;
+        currentDate = currentDate.replace("/", "-");
+        currentDate = currentDate.replace("/", "-");
         await setDate(currentDate);
     }
 
     const getData = async function() {
-        const response = await fetch("https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=13&end_date=2021-12-08");
+        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=13&end_date=${date}`);
         const data = await response.json();
         const justGames = await data.data;
         const sortedByDateGames = await justGames.sort(function(a, b) {
@@ -45,67 +47,17 @@ const Chart = function() {
         await setGames(sortedByDateGames);
     }
 
-    const generatePieChartData = function() {
-        const data = {
-            labels: [
-                "Won",
-                "Lost",
-                "Draw"
-            ],
-            datasets: [{
-                data: [],
-                backgroundColor: [
-                "green",
-                "red",
-                "orange"
-                ],
-                hoverBackgroundColor: [
-                "lightgreen",
-                "lightred",
-                "lightorange"
-                ]
-            }]
-        };
-        let won = 0;
-        let lost = 0;
-        let draw = 0;
-        for (let i=0; i<games.length; i++) {
-            if (calculateWon(games[i]) === "won") {
-                won +=1
-            } else if (calculateWon(games[i]) === "lost") {
-                lost += 1;
-            } else if (calculateWon(games[i]) === "draw") {
-                draw += 1;
-            }
-        }
-        const tempData = [won, lost, draw];
-        data.datasets[0].data = tempData;
-        return data;
-    }
-
-    const calculateWon = function(game) {
-        let clippersScore = "";
-        let opponentScore = "";
-        if (game.home_team.abbreviation === "LAC") {
-            clippersScore = game.home_team_score;
-            opponentScore = game.visitor_team_score;
-        } else {
-            clippersScore = game.visitor_team_score;
-            opponentScore = game.home_team_score;
-        }
-        if (clippersScore === opponentScore) {
-            return "draw";
-        } else if (clippersScore > opponentScore) {
-            return "won";
-        } else if (clippersScore < opponentScore) {
-            return "lost";
-        }
-    }
-
     return(
         <div>
             <Header />
-            <Pie data={generatePieChartData()} />
+            <div className="charts-div">
+                <div className="pie-chart-div">
+                    {games!==[] ? <PieChart games={games} /> : null}
+                </div>
+                <div className="bar-chart-div">
+                    {games!==[] ? <BarChart games={games} /> : null}
+                </div>
+            </div>
         </div>
     )
 }
