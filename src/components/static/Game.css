@@ -8,3 +8,17 @@
     background-color: lavender;
     font-size: 135%;
 }
+
+.top-game-data-div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.symbol-div {
+    padding-left: 10%;
+}
+
+.top-game-data-div > p {
+    padding-left: 25%;
+}

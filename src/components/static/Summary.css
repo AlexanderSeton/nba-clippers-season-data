@@ -1,0 +1,28 @@
+.summary-div {
+    /* border: 1px dotted black; */
+    text-align: center;
+    padding: 2%;
+    text-align: left;
+}
+
+.summary-div > h2 {
+    padding-left: 0.75%;
+}
+
+.summary-table {
+    border: 5px solid black;
+    width: 20vw;
+    text-align: center;
+    font-size: 125%;
+    background-color: lavender;
+    padding: 0.25%;
+}
+
+.summary-table, th, td {
+    border: 1px solid black;
+    border-radius: 2vw;
+}
+
+th, td {
+    padding: 3% 2%;
+}

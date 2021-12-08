@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import GamesList from "../components/GamesList";
 import Header from "../components/Header";
+import Summary from "../components/Summary";
 import "./static/GamesContainer.css";
 
 const GamesContainer = function() {
@@ -49,6 +50,7 @@ const GamesContainer = function() {
     return(
         <div className="games-container-div">
             <Header />
+            {games!==[] ?<Summary games={games} /> : null}
             {games!==[] ?<GamesList games={games} /> : null}
         </div>
     )   

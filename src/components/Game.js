@@ -36,7 +36,12 @@ const Game = function({game}) {
 
     return(
         <div className="game-div">
-            <p>{convertDate()}</p>
+            <div className="top-game-data-div">
+                <div className="symbol-div">
+                    {checkAwayResult()==="green" ? <p>&#127942;</p> : <p>&#10060;</p> }
+                </div>
+                <p>{convertDate()}</p>
+            </div>
             <hr />
             <p style={{ color: checkHomeResult() }}>
                 <strong>Home: </strong>{game.home_team.name} - {game.home_team_score}
