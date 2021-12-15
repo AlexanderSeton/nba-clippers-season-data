@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import "./static/Chart.css";
 import PieChart from "../components/PieChart";
 import BarChart from "../components/BarChart";
+import BarChart2 from "../components/BarChart2";
 import Summary from "../components/Summary";
 import LineChart from "../components/LineChart";
 
@@ -63,6 +64,9 @@ const Chart = function() {
             </div>
             <div className="line-chart-div">
                     {games!==[] ? <LineChart games={games} /> : null}
+            </div>
+            <div className="bar-chart-2-div">
+                {games!==[] ? <BarChart2 games={games} /> : null}
             </div>
         </div>
     )

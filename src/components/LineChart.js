@@ -76,7 +76,8 @@ const LineChart = function({ games }) {
                                 display: true,
                                 labelString: "Points Win Margin",
                                 fontSize: 25,
-                                fontColor: "black"
+                                fontColor: "black",
+                                fontStyle: "bold"
                             }
                         }],
                         xAxes: [{
@@ -88,13 +89,14 @@ const LineChart = function({ games }) {
                                 display: true,
                                 labelString: "Opponent Team (month)",
                                 fontSize: 25,
-                                fontColor: "black"
+                                fontColor: "black",
+                                fontStyle: "bold"
                             }
                         }]
                     },
                     title: {
                         display: true,
-                        text: "Win Strength",
+                        text: "Win Strengths",
                         fontSize: 35,
                         fontColor: "black"
                     }

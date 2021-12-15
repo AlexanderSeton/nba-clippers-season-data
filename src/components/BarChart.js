@@ -8,7 +8,6 @@ const BarChart = function({ games }) {
             labels: ["Home Wins", "Away Wins", "Home Losses", "Away Losses", "Home Draws", "Away Draws"],
             datasets: [
                 {
-                    label: "Home vs Away",
                     backgroundColor: ["green", "green", "red", "red", "orange", "orange"],
                     borderColor: "",
                     borderWidth: 2,
@@ -92,7 +91,7 @@ const BarChart = function({ games }) {
                     },
                     title: {
                         display: true,
-                        text: "Home vs Away Results",
+                        text: "Home vs Away",
                         fontSize: 35,
                         fontColor: "black"
                     }
