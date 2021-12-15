@@ -84,23 +84,20 @@ const BarChart2 = function({ games }) {
                 return b[1][0] - a[1][0];
             })
 
-            console.log(tempNewDataArray)
+            // console.log(tempNewDataArray)
 
-            // console.log(tempNewDataArray);
-            const topData = tempNewDataArray.splice(0, 3);
-            // console.log(topData);
+            const topData = tempNewDataArray.splice(0, 5);
 
             // assign to graph data
             for (let dataItem of topData) {
                 data.datasets[0].backgroundColor.push("green");
                 data.datasets[1].backgroundColor.push("rgba(255, 0, 0, 0.3)");
                 data.datasets[2].backgroundColor.push("#ffe4b2");
-                data.labels.push(dataItem[0]);
+                data.labels.push(`${dataItem[0]} (${dataItem[1][3]}%)`);
                 data.datasets[0].data.push(dataItem[1][0]);
                 data.datasets[1].data.push(dataItem[1][1]);
                 data.datasets[2].data.push(dataItem[1][2]);
             }
-
             return data;
         }
     }
@@ -154,7 +151,7 @@ const BarChart2 = function({ games }) {
                         }],
                         xAxes: [{
                             ticks: {
-                                fontSize: 25,
+                                fontSize: 22.5,
                                 fontColor: "black"
                             },
                             scaleLabel: {
@@ -169,7 +166,7 @@ const BarChart2 = function({ games }) {
                     },
                     title: {
                         display: true,
-                        text: "Best Win Percentage Against",
+                        text: "Top 5 Win Percentages Against Teams",
                         fontSize: 35,
                         fontColor: "black"
                     }
