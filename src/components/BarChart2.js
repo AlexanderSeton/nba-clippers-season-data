@@ -34,22 +34,31 @@ const BarChart2 = function({ games }) {
             ]
         };
         if (games.length !== 0) {
-            // opponentTeamName: [clipperWins, opponentWins, draws]
+            // opponentTeamName: [clipperWins, opponentWins, draws, clippersWinPercentage]
             const dataDict = {};
             for (let i=0; i<games.length; i++) {
                 if (calculateWon(games[i]) === "homewon") {
-                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.name][0] += 1 : dataDict[games[i].visitor_team.name] = [1, 0, 0];
+                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.name][0] += 1 : dataDict[games[i].visitor_team.name] = [1, 0, 0, 0];
                 } else if (calculateWon(games[i]) === "awaywon") {
-                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.name][0] += 1 : dataDict[games[i].home_team.name] = [1, 0, 0];
+                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.name][0] += 1 : dataDict[games[i].home_team.name] = [1, 0, 0, 0];
                 } else if (calculateWon(games[i]) === "homelost") {
-                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.name][1] += 1 : dataDict[games[i].visitor_team.name] = [0, 1, 0];
+                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.name][1] += 1 : dataDict[games[i].visitor_team.name] = [0, 1, 0, 0];
                 } else if (calculateWon(games[i]) === "awaylost") {
-                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.name][1] += 1 : dataDict[games[i].home_team.name] = [0, 1, 0];
+                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.name][1] += 1 : dataDict[games[i].home_team.name] = [0, 1, 0, 0];
                 } else if (calculateWon(games[i]) === "homedraw") {
-                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.name][2] += 1 : dataDict[games[i].visitor_team.name] = [0, 0, 1];
+                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.name][2] += 1 : dataDict[games[i].visitor_team.name] = [0, 0, 1, 0];
                 } else if (calculateWon(games[i]) === "awaydraw") {
-                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.name][2] += 1 : dataDict[games[i].home_team.name] = [0, 0, 1];
+                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.name][2] += 1 : dataDict[games[i].home_team.name] = [0, 0, 1, 0];
                 }
+            }
+
+            // calc win percentage
+            for (const [key, value] of Object.entries(dataDict)) {
+                let totalNumberGames = value[0] + value[1] + value[2];
+                let wonGames = value[0];
+                let winPercentage = (wonGames / totalNumberGames) * 100;
+                // console.log(winPercentage.toFixed(0));
+                dataDict[key][3] = winPercentage;
             }
             
             // sort object and take only top 3
@@ -58,16 +67,38 @@ const BarChart2 = function({ games }) {
                 arrayAllTeamData.push([key, value]);
             }
             arrayAllTeamData.sort(function(a, b) {
+                return b[1][3] - a[1][3];
+            })
+
+            // console.log(arrayAllTeamData);
+
+
+            // order 100% win rate teams by number of games played
+            const tempNewDataArray = [];
+            for (let i=0; i<arrayAllTeamData.length-1; i++) {
+                if (arrayAllTeamData[i][1][3] === 100) {
+                    tempNewDataArray.push(arrayAllTeamData[i])
+                }
+            }
+            tempNewDataArray.sort(function(a, b) {
                 return b[1][0] - a[1][0];
             })
-            const topThreeData = arrayAllTeamData.splice(0, 3);
+
+            console.log(tempNewDataArray)
+
+            // console.log(tempNewDataArray);
+            const topData = tempNewDataArray.splice(0, 3);
+            // console.log(topData);
 
             // assign to graph data
-            for (let dataItem of topThreeData) {
+            for (let dataItem of topData) {
+                data.datasets[0].backgroundColor.push("green");
+                data.datasets[1].backgroundColor.push("rgba(255, 0, 0, 0.3)");
+                data.datasets[2].backgroundColor.push("#ffe4b2");
                 data.labels.push(dataItem[0]);
-                data.datasets[0].data.push(dataItem[1][0])
-                data.datasets[1].data.push(dataItem[1][1])
-                data.datasets[2].data.push(dataItem[1][2])
+                data.datasets[0].data.push(dataItem[1][0]);
+                data.datasets[1].data.push(dataItem[1][1]);
+                data.datasets[2].data.push(dataItem[1][2]);
             }
 
             return data;
@@ -138,7 +169,7 @@ const BarChart2 = function({ games }) {
                     },
                     title: {
                         display: true,
-                        text: "Most Beaten Teams",
+                        text: "Best Win Percentage Against",
                         fontSize: 35,
                         fontColor: "black"
                     }
