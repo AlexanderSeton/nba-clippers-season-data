@@ -19,7 +19,7 @@ const LineChart = function({ games }) {
         };
         for (let game of games) {
             if (calculateWon(game) === "homewon") {
-                data.labels.push(game.visitor_team.name + ` (${convertDate(game)})`);
+                data.labels.push(game.visitor_team.name + `(${convertDate(game)})`);
                 data.datasets[0].data.push(game.home_team_score - game.visitor_team_score);
             }
             if (calculateWon(game) === "awaywon") {
@@ -54,7 +54,7 @@ const LineChart = function({ games }) {
 
     const convertDate = function(game) {
         const date = new Date(game.date);
-        const localDate = date.toDateString("en-GB").substr(4, 4);
+        const localDate = date.toDateString("en-GB").substr(4, 3);
         return localDate;
     }
 

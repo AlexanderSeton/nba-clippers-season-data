@@ -16,6 +16,11 @@ const Header = function() {
                         <h1 className="nav-link-h1">Charts</h1>
                     </NavLink>
                 </div>
+                <div className="nav-link">
+                    <NavLink to="/roster" style={{ textDecoration: 'none' }}>
+                        <h1 className="nav-link-h1">Roster</h1>
+                    </NavLink>
+                </div>
             </nav>
             <div className="main-title">
                 <h1>Clipper's Team Data (2020/21)</h1>

@@ -9,13 +9,12 @@
 .nav-links {
     display: flex;
     flex-flow: row nowrap;
-    border-bottom: 1px solid black;
     align-items: center;
 }
 
 .nav-link {
     padding: 0 2%;
-    margin: 0 20%;
+    margin: 0 10%;
 }
 
 .nav-link-h1 {
@@ -30,6 +29,6 @@
 
 .main-title {
     /* border: 1px solid black; */
-    margin: auto;
-    margin-right: 35vw;
+    margin: 0 auto;
+    white-space: nowrap;
 }
