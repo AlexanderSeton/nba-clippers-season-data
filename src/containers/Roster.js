@@ -14,7 +14,7 @@ const Roster = function() {
     const getData = async function() {
         const year = "2021";
         const team = "clippers"
-        const response = await fetch(`http://data.nba.net/v2015/json/mobile_teams/nba/${year}/teams/${team}_roster.json`);
+        const response = await fetch(`https://data.nba.net/v2015/json/mobile_teams/nba/${year}/teams/${team}_roster.json`);
         const data = await response.json();
         const justRoster = await data.t.pl;
         await setRoster(justRoster);
