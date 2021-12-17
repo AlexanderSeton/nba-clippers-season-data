@@ -10,14 +10,14 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "react-chartjs-3": "^2.7.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-prebuild": "npm install --only=dev"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
