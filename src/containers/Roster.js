@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import Header2 from "../components/Header2";
 import RosterList from "../components/RosterList";
 import "./static/Roster.css";
 
@@ -22,7 +23,7 @@ const Roster = function() {
 
     return(
         <div>
-            <Header />
+            <Header2 />
             <RosterList roster={roster} />
         </div>
     )

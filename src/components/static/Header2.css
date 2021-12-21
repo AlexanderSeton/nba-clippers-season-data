@@ -1,0 +1,71 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.topnav {
+    overflow: hidden;
+    background-color: grey;
+    height: auto;
+    font-size: 140%;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    height: auto;
+    color: black;
+    text-align: center;
+    padding: 7.5px 20px;
+    /* padding: 1vh 2vw; */
+    text-decoration: none;
+    align-items: center;
+}
+
+.topnav a:hover:not(.icon) {
+    background-color: #ddd;
+    color: black;
+}
+
+/* .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+} */
+
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .topnav a {
+        display: none;
+    }
+    .topnav a.icon {
+        float: left;
+        display: block;
+        position: absolute;
+        left: 4vw;
+        top: 3vh;
+    }
+    .topnav {
+        height: 10vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .topnav.responsive {
+        position: relative;
+        height: auto;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        left: 2vw;
+        top: 1vh;
+    }
+    .topnav.responsive a:not(.icon) {
+        float: none;
+        display: block;
+        text-align: left;
+        padding-left: 10%;
+    }
+    .topnav.responsive a:first-child:not(.icon) {
+        padding-top: 12.5%;
+    }
+}
