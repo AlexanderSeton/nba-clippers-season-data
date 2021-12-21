@@ -52,7 +52,7 @@ const Chart = function() {
     }
 
     return(
-        <div>
+        <div className="charts-container-div">
             <Header2 />
             {games!==[] ?<Summary games={games} /> : null}
             <div className="charts-div">

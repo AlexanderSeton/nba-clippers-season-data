@@ -18,13 +18,13 @@ const Header2 = function() {
     return(
         <div className="topnav" id="myTopnav">
             <NavLink to="/" style={{ textDecoration: 'none' }}>
-                <h2>Games</h2>
+                <h2 className="nav-h2">Games</h2>
             </NavLink>
             <NavLink to="/charts" style={{ textDecoration: 'none' }}>
-                <h2>Charts</h2>
+                <h2 className="nav-h2">Charts</h2>
             </NavLink>
             <NavLink to="/roster" style={{ textDecoration: 'none' }}>
-                <h2>Roster</h2>
+                <h2 className="nav-h2">Roster</h2>
             </NavLink>
             <a href="javascript:void(0);" className="icon" onClick={() => handleDropDown()}>
                 <i class="fa fa-bars" style={{ transform: "scale(2.5)" }}></i>

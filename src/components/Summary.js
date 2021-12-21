@@ -38,7 +38,7 @@ const Summary = function({ games }) {
             <h2>Season Summary</h2>
             <table className="summary-table">
                 <thead>
-                    <tr>
+                    <tr className="tr-headings">
                         <th>No. Games</th>
                         <th>Won</th>
                         <th>Lost</th>
@@ -46,7 +46,7 @@ const Summary = function({ games }) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr className="tr-data">
                         <td>{games.length}</td>
                         <td>{calculateWon()[0]}</td>
                         <td>{calculateWon()[1]}</td>

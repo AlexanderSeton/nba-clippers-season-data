@@ -43,7 +43,7 @@ const GamesContainer = function() {
         const data = await response.json();
         const justGames = await data.data;
         const sortedByDateGames = await justGames.sort(function(a, b) {
-            return a.id - b.id;
+            return b.id - a.id;
         })
         await setGames(sortedByDateGames);
     }
