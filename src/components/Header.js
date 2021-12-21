@@ -6,13 +6,20 @@ import menuIcon from "../assets/menuIcon.svg";
 const Header = function() {
 
     const dropDown = function() {
-        console.log("entered method");
-    }
+        const headerNav = document.querySelector("#my-nav-links");
+        // console.log(headerNav.className); // testing
+        if (headerNav.className === "nav-links") {
+            headerNav.className += " responsive";
+        } else {
+            headerNav.className = "nav-links";
+        }
+        console.log(headerNav.className) // testing
+      }
 
     return(
         <div className="header">
-            <nav className="nav-links">
-                <a href="javascript:void(0);" class="menu-icon" onclick={dropDown()}>
+            <nav className="nav-links" id="my-nav-links">
+                <a href="javascript:void(0);" class="menu-icon" onClick={() => dropDown()}>
                     <img src={menuIcon} alt="Menu Icon" />
                 </a>
                 <div className="nav-link">
