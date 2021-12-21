@@ -34,11 +34,21 @@ const Game = function({game}) {
         }
     }
 
+    const checkResult = function() {
+        if (game.home_team.name === "Clippers") {
+            const result = checkHomeResult();
+            return result;
+        } else {
+            const result = checkAwayResult();
+            return result;
+        }
+    }
+
     return(
         <div className="game-div">
             <div className="top-game-data-div">
                 <div className="symbol-div">
-                    {checkAwayResult()==="green" ? <p>&#127942;</p> : <p>&#10060;</p> }
+                    {checkResult()==="green" ? <p>&#127942;</p> : checkResult() === "red" ? <p>&#10060;</p> : <p>&#8265;</p>}
                 </div>
                 <p>{convertDate()}</p>
             </div>
