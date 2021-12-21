@@ -4,6 +4,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    height: 10vh;
 }
 
 .nav-links {
@@ -31,4 +32,18 @@
     /* border: 1px solid black; */
     margin: 0 auto;
     white-space: nowrap;
+}
+
+.menu-icon {
+    padding: 50%;
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav-links .nav-link {
+        display: none;
+    }
+    .nav-links .menu-icon {
+        display: block;
+    }
 }
