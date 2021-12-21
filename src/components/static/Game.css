@@ -1,12 +1,13 @@
 .game-div {
     border: 1px solid black;
     width: 20vw;
-    min-width: 205px;
+    min-width: 175px;
     text-align: center;
     margin: 1% auto;
     border-radius: 2vw;
     background-color: lavender;
     font-size: 135%;
+    padding: 1%;
 }
 
 .top-game-data-div {

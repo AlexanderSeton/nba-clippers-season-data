@@ -1,10 +1,11 @@
 .player {
     border: 1px solid black;
     width: 25vw;
-    min-width: 205px;
+    min-width: 175px;
     text-align: center;
     font-size: 125%;
     margin: 1% auto;
     border-radius: 2vw;
     background-color: lavender;
+    padding: 1%;
 }

@@ -10,7 +10,7 @@ const GamesList = function({games}) {
 
     return(
         <div className="games-list-component-div">
-            <h2>Played Games (Oldest &#8594; Newest)</h2>
+            <h2>Played Games (New &#8594; Old)</h2>
             <div className="games-div">
                 {gameItems}
             </div>
