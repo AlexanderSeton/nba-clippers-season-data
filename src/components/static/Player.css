@@ -1,6 +1,7 @@
 .player {
     border: 1px solid black;
     width: 25vw;
+    min-width: 205px;
     text-align: center;
     font-size: 125%;
     margin: 1% auto;
