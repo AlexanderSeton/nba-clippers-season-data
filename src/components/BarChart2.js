@@ -38,17 +38,17 @@ const BarChart2 = function({ games }) {
             const dataDict = {};
             for (let i=0; i<games.length; i++) {
                 if (calculateWon(games[i]) === "homewon") {
-                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.abbreviation][0] += 1 : dataDict[games[i].visitor_team.abbreviation] = [1, 0, 0, 0];
+                    dataDict[games[i].visitor_team.abbreviation] ? dataDict[games[i].visitor_team.abbreviation][0] += 1 : dataDict[games[i].visitor_team.abbreviation] = [1, 0, 0, 0];
                 } else if (calculateWon(games[i]) === "awaywon") {
-                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.abbreviation][0] += 1 : dataDict[games[i].home_team.abbreviation] = [1, 0, 0, 0];
+                    dataDict[games[i].home_team.abbreviation] ? dataDict[games[i].home_team.abbreviation][0] += 1 : dataDict[games[i].home_team.abbreviation] = [1, 0, 0, 0];
                 } else if (calculateWon(games[i]) === "homelost") {
-                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.abbreviation][1] += 1 : dataDict[games[i].visitor_team.abbreviation] = [0, 1, 0, 0];
+                    dataDict[games[i].visitor_team.abbreviation] ? dataDict[games[i].visitor_team.abbreviation][1] += 1 : dataDict[games[i].visitor_team.abbreviation] = [0, 1, 0, 0];
                 } else if (calculateWon(games[i]) === "awaylost") {
-                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.abbreviation][1] += 1 : dataDict[games[i].home_team.abbreviation] = [0, 1, 0, 0];
+                    dataDict[games[i].home_team.abbreviation] ? dataDict[games[i].home_team.abbreviation][1] += 1 : dataDict[games[i].home_team.abbreviation] = [0, 1, 0, 0];
                 } else if (calculateWon(games[i]) === "homedraw") {
-                    dataDict[games[i].visitor_team.name] ? dataDict[games[i].visitor_team.abbreviation][2] += 1 : dataDict[games[i].visitor_team.abbreviation] = [0, 0, 1, 0];
+                    dataDict[games[i].visitor_team.abbreviation] ? dataDict[games[i].visitor_team.abbreviation][2] += 1 : dataDict[games[i].visitor_team.abbreviation] = [0, 0, 1, 0];
                 } else if (calculateWon(games[i]) === "awaydraw") {
-                    dataDict[games[i].home_team.name] ? dataDict[games[i].home_team.abbreviation][2] += 1 : dataDict[games[i].home_team.abbreviation] = [0, 0, 1, 0];
+                    dataDict[games[i].home_team.abbreviation] ? dataDict[games[i].home_team.abbreviation][2] += 1 : dataDict[games[i].home_team.abbreviation] = [0, 0, 1, 0];
                 }
             }
 
