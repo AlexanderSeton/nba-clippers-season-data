@@ -38,3 +38,34 @@
     padding: 1% 2%;
     background-color: lavender;
 }
+
+@media screen and (max-width: 800px) {
+    .charts-div {
+        display: block;
+        height: auto;
+    }
+    .pie-chart-div {
+        width: 90vw;
+        margin: auto;
+        height: auto;
+        margin: 25px auto;
+    }
+    .bar-chart-div {
+        width: 90vw;
+        margin: auto;
+        height: auto;
+        margin: 25px auto;
+    }
+    .line-chart-div {
+        width: 90vw;
+        margin: auto;
+        height: auto;
+        margin: 25px auto;
+    }
+    .bar-chart-2-div {
+        width: 90vw;
+        margin: auto;
+        height: auto;
+        margin: 25px auto;
+    }
+}
