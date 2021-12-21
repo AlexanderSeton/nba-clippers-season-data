@@ -50,7 +50,6 @@ const GamesContainer = function() {
 
     return(
         <div className="games-container-div">
-            {/* <Header /> */}
             <Header2 />
             {games!==[] ?<Summary games={games} /> : null}
             {games!==[] ?<GamesList games={games} /> : null}

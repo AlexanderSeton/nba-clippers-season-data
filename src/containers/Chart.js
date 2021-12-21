@@ -6,6 +6,7 @@ import BarChart from "../components/BarChart";
 import BarChart2 from "../components/BarChart2";
 import Summary from "../components/Summary";
 import LineChart from "../components/LineChart";
+import Header2 from "../components/Header2";
 
 const Chart = function() {
 
@@ -52,7 +53,7 @@ const Chart = function() {
 
     return(
         <div>
-            <Header />
+            <Header2 />
             {games!==[] ?<Summary games={games} /> : null}
             <div className="charts-div">
                 <div className="pie-chart-div">
