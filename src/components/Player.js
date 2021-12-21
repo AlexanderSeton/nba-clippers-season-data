@@ -11,10 +11,10 @@ const Player = function({player}) {
     return(
         <div className="player">
             <h2>{player.fn} {player.ln} {player.num}</h2>
-            <p>Height: {player.ht}</p>
-            <p>Weight: {player.wt}lbs</p>
-            <p>DoB: {player.dob}</p>
-            <p>Country: {getPlayerCountry()}</p>
+            <p><strong>Height: </strong>{player.ht}</p>
+            <p><strong>Weight: </strong>{player.wt}lbs</p>
+            <p><strong>DoB: </strong>{player.dob}</p>
+            <p><strong>Country: </strong>{getPlayerCountry()}</p>
         </div>
     )
 }

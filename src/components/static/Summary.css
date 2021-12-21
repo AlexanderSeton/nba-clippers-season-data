@@ -11,7 +11,7 @@
 
 .summary-table {
     border: 5px solid black;
-    width: 20vw;
+    width: 40vw;
     text-align: center;
     font-size: 125%;
     background-color: lavender;
@@ -25,4 +25,18 @@
 
 th, td {
     padding: 3% 2%;
+}
+
+th {
+    font-weight: 800;
+}
+
+@media screen and (max-width: 800px) {
+    .summary-table {
+        width: 90vw;
+        margin: auto;
+    }
+    .summary-div {
+        padding-bottom: 5%;
+    }
 }
