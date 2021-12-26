@@ -4,13 +4,30 @@
 }
 
 .team-select-form-div {
-    border: 3px solid black;
+    /* border: 1px solid black; */
     width: 95vw;
     margin: 1% auto;
+    padding: 2%;
 }
 
 .team-select-form {
-    border: 1px solid red;
     text-align: center;
     padding: 3%;
+    font-size: 175%;
+}
+
+.team-select-form > label {
+    padding-right: 2%;
+}
+
+.team-select-dropdown, option {
+    height: 5vh;
+    width: 25vw;
+    text-align: center;
+    font-size: 70%;
+}
+
+.team-select-dropdown {
+    border: 2.5px solid black;
+    border-radius: 0.5vw;
 }

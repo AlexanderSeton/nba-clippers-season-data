@@ -29,12 +29,11 @@ const TeamsContainer = function() {
         <div>
             <Header2 />
             <div>
-                <h1 className="team-select-h1">Choose NBA Team</h1>
                 <div className="team-select-form-div">
                     <form className="team-select-form">
-                        <label>Choose A Team: </label>
+                        <label><strong>Choose A Team: </strong></label>
                         {allTeams.length === 30 ? 
-                        <select name="team-select-dropdown" id="team-select-dropdown" onChange={handleDropdownChange}>
+                        <select name="team-select-dropdown" className="team-select-dropdown" onChange={handleDropdownChange}>
                             <option value={allTeams[0]["abbreviation"]}>{allTeams[0]["full_name"]}</option>
                             <option value={allTeams[1]["abbreviation"]}>{allTeams[1]["full_name"]}</option>
                             <option value={allTeams[2]["abbreviation"]}>{allTeams[2]["full_name"]}</option>
