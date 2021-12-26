@@ -3,7 +3,7 @@
     width: 99vw;
     display: flex;
     flex-flow: row;
-    margin: 1% auto;
+    margin: 0.5% auto;
     justify-content: space-evenly;
 }
 
