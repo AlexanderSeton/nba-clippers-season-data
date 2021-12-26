@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Summary from "../components/Summary";
 import Header2 from "../components/Header2";
 import "./static/GamesContainer.css";
+import TeamsContainer from "./TeamsContainer.js";
 
 const GamesContainer = function() {
 
@@ -52,6 +53,7 @@ const GamesContainer = function() {
     return(
         <div className="games-container-div">
             <Header2 />
+            <TeamsContainer />
             {games!==[] ?<Summary games={games} /> : null}
             {games!==[] ?<GamesList games={games} /> : null}
         </div>

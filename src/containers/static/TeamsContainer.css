@@ -1,33 +1,34 @@
-.team-select-h1 {
-    text-align: center;
-    padding-top: 2%;
-}
-
 .team-select-form-div {
-    /* border: 1px solid black; */
-    width: 95vw;
-    margin: 1% auto;
-    padding: 2%;
+    border: 1px solid black;
+    border-radius: 0.5vw;
+    text-align: left;
+    /* padding: 1%; */
+    padding-bottom: 2%;
+    margin-top: 2.5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    text-align: center;
 }
 
 .team-select-form {
-    text-align: center;
-    padding: 3%;
+}
+
+.team-select-form > label > h2 {
+    /* border: 2px solid red; */
+    padding: 0;
     font-size: 175%;
 }
 
-.team-select-form > label {
-    padding-right: 2%;
-}
-
 .team-select-dropdown, option {
-    height: 5vh;
-    width: 25vw;
-    text-align: center;
-    font-size: 70%;
+    padding-left: 1%;
 }
 
 .team-select-dropdown {
-    border: 2.5px solid black;
+    border: 1px solid black;
     border-radius: 0.5vw;
+    background-color: lavender;
+    height: 5vh;
+    width: 30vw;
+    font-size: 150%;
 }
