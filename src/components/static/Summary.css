@@ -18,16 +18,16 @@
     padding: 0.25%;
 }
 
-.summary-table, th, td {
+.summary-table, .s-th, .s-td {
     border: 1px solid black;
     border-radius: 2vw;
 }
 
-th, td {
+.s-th, .s-td {
     padding: 3% 2%;
 }
 
-th {
+.s-th {
     font-weight: 800;
 }
 

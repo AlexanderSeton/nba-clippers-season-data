@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header2 from "../components/Header2";
-import "./static/TeamsContainer.css";
+import Table from "../components/Table";
+import "./static/TableContainer.css";
 
-const TeamsContainer = function() {
+const TableContainer = function() {
 
     const [currentDate, setCurrentDate] = useState("");
     const [seasonStartDate, setSeasonStartDate] = useState("2021-10-19");
     const [allGames, setAllGames] = useState([]);
     const [teamsList, setTeamsList] = useState({});
+    const [dataPrepared, setDataPrepared] = useState(false);
 
     const firstUpdate = useRef(0);
     const firstUpdate2 = useRef(0);
@@ -114,13 +116,30 @@ const TeamsContainer = function() {
                 team["winPct"] = winPercentage;
             }
         }
+        for (let conference in teamsList) {
+            const sortByWinPctTeams = await teamsList[conference].sort(function(a, b) {
+                return b["winPct"] - a["winPct"];
+            })
+            teamsList[conference] = await sortByWinPctTeams;
+        }
+        setDataPrepared(true);
     }
 
     return(
-        <div>
+        <div className="table-container-div">
             <Header2 />
+            <div className="tables-div">
+                <div className="table-div">
+                    <h2>Eastern Conference</h2>
+                    {dataPrepared ? <Table teamData={teamsList["East"]}  /> : null}
+                </div>
+                <div className="table-div">
+                    <h2>Western Conference</h2>
+                    {dataPrepared ? <Table teamData={teamsList["West"]} /> : null}
+                </div>
+            </div>
         </div>
     )
 }
 
-export default TeamsContainer;
+export default TableContainer;

@@ -36,16 +36,16 @@ const Summary = function({ games }) {
             <table className="summary-table">
                 <thead>
                     <tr className="tr-headings">
-                        <th>No. Games</th>
-                        <th>Won</th>
-                        <th>Lost</th>
+                        <th className="s-th">No. Games</th>
+                        <th className="s-th">Won</th>
+                        <th className="s-th">Lost</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr className="tr-data">
-                        <td>{games.length}</td>
-                        <td>{calculateWon()[0]}</td>
-                        <td>{calculateWon()[1]}</td>
+                        <td className="s-td">{games.length}</td>
+                        <td className="s-td">{calculateWon()[0]}</td>
+                        <td className="s-td">{calculateWon()[1]}</td>
                     </tr>
                 </tbody>
             </table>

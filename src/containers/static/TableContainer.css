@@ -1,0 +1,12 @@
+.tables-div {
+    border: 2px solid black;
+    width: 95vw;
+    display: flex;
+    flex-flow: row;
+    margin: 2% auto;
+}
+
+.table-div {
+    border: 1px solid black;
+    width: 50%;
+}
