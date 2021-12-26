@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
     .tables-div {
         width: 95vw;
         flex-flow: column wrap;

@@ -33,17 +33,6 @@ const TableContainer = function() {
             return;
         }
         rankTeams();
-
-        // // test
-        // let count = 0;
-        // for (let game of allGames) {
-        //     if (game["home_team"]["abbreviation"] === "BKN" || game["visitor_team"]["abbreviation"] === "BKN") {
-        //         console.log(game)
-        //         count ++;
-        //     }
-        // }
-        // console.log(count);
-
     }, [allGames])
 
     const getCurrentDate = async function() {

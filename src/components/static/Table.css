@@ -1,12 +1,13 @@
 .league-table {  
-    border: 2px solid black; 
+    border: 3px solid black; 
     border-radius: 0.35vw;
     width: 95%;
     margin: 2% auto;
+    background-color: lavender;
 }
 
 .league-th {
-    border: 1px solid black;
+    border: 2.5px solid black;
     border-radius: 0.35vw;
     font-size: 170%;
     height: 6vh;
@@ -15,7 +16,7 @@
 .league-heading-tr {
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
     .league-th {
         font-size: 120%;
     }
