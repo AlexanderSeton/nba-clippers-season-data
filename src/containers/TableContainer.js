@@ -33,6 +33,17 @@ const TableContainer = function() {
             return;
         }
         rankTeams();
+
+        // // test
+        // let count = 0;
+        // for (let game of allGames) {
+        //     if (game["home_team"]["abbreviation"] === "BKN" || game["visitor_team"]["abbreviation"] === "BKN") {
+        //         console.log(game)
+        //         count ++;
+        //     }
+        // }
+        // console.log(count);
+
     }, [allGames])
 
     const getCurrentDate = async function() {
@@ -70,10 +81,16 @@ const TableContainer = function() {
         } else {
             tempAllGames = firstPageGames;
         }
-        // await setAllGames(tempAllGames);
         const sortedByDateGames = await tempAllGames.sort(function(a, b) {
             return a["id"] - b["id"];
         })
+        // check for bad data (games with no points for either team)
+        for await (let game of sortedByDateGames) {
+            if (game["home_team_score"] === 0 || game["visitor_team_score"] === 0) {
+                const indexGameToDelete = await sortedByDateGames.indexOf(game);
+                await sortedByDateGames.splice(indexGameToDelete, 1);
+            }
+        }
         await setAllGames(sortedByDateGames);
     }
 
@@ -112,7 +129,7 @@ const TableContainer = function() {
         for (let conference in teamsList) {
             for (let team of teamsList[conference]) {
                 let winPercentage = (team["win"] / (team["win"] + team["loss"])) * 100;
-                winPercentage = winPercentage.toFixed(2);
+                winPercentage = winPercentage.toFixed(1);
                 team["winPct"] = winPercentage;
             }
         }

@@ -1,12 +1,14 @@
 .league-table {  
     border: 2px solid black; 
+    border-radius: 0.35vw;
     width: 95%;
     margin: 2% auto;
 }
 
 .league-th {
-    font-size: 170%;
     border: 1px solid black;
+    border-radius: 0.35vw;
+    font-size: 170%;
     height: 6vh;
 }
 
