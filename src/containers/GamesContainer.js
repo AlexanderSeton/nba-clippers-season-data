@@ -27,13 +27,13 @@ const GamesContainer = function() {
 
     const getCurrentDate = async function() {
         let currentDate = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-        let day = parseInt(currentDate.substr(8, 9));
+        let day = parseInt(currentDate.substring(8, 9));
         day -= 1;
         const singleNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         if (singleNumbers.includes(day)) {
             day = "0" + day;
         }
-        currentDate = currentDate.substr(0, 8) + day;
+        currentDate = currentDate.substring(0, 8) + day;
         currentDate = currentDate.replace("/", "-");
         currentDate = currentDate.replace("/", "-");
         await setDate(currentDate);

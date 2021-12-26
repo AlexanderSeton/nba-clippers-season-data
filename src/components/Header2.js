@@ -18,6 +18,9 @@ const Header2 = function() {
     return(
         <div className="topnav" id="myTopnav">
             <NavLink to="/" style={{ textDecoration: 'none' }}>
+                <h2 className="nav-h2">Teams</h2>
+            </NavLink>
+            <NavLink to="/games" style={{ textDecoration: 'none' }}>
                 <h2 className="nav-h2">Games</h2>
             </NavLink>
             <NavLink to="/charts" style={{ textDecoration: 'none' }}>
