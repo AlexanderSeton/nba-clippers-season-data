@@ -9,6 +9,7 @@ const GamesContainer = function() {
 
     const [date, setDate] = useState("");
     const [games, setGames] = useState([]);
+    const [seasonStartDate, setSeasonStartDate] = useState("2021-10-19");
 
     const firstUpdate = useRef(true);
 
@@ -39,7 +40,7 @@ const GamesContainer = function() {
     }
 
     const getData = async function() {
-        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=13&end_date=${date}`);
+        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=13&end_date=${date}&start_date=${seasonStartDate}`);
         const data = await response.json();
         const justGames = await data.data;
         const sortedByDateGames = await justGames.sort(function(a, b) {
