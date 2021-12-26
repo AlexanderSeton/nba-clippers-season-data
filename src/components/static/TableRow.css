@@ -2,7 +2,14 @@
     border: 1px solid black;
     text-align: center;
     font-size: 150%;
+    height: 3.75vh;
 }
 
 .league-data-tr {
+}
+
+@media screen and (max-width: 800px) {
+    .league-td {
+        font-size: 110%;
+    }
 }

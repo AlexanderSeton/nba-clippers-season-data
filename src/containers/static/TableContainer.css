@@ -1,17 +1,29 @@
 .tables-div {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 99vw;
     display: flex;
     flex-flow: row;
-    margin: 2% auto;
+    margin: 1% auto;
     justify-content: space-evenly;
 }
 
 .table-div {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 48.5%;
 }
 
 .table-div > h1 {
     text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .tables-div {
+        width: 95vw;
+        flex-flow: column wrap;
+    }
+    .table-div {
+        width: 100%;
+        padding-top: 5%;
+        padding-bottom: 2.5%;
+    }
 }

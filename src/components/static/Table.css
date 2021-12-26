@@ -7,7 +7,14 @@
 .league-th {
     font-size: 170%;
     border: 1px solid black;
+    height: 6vh;
 }
 
 .league-heading-tr {
+}
+
+@media screen and (max-width: 800px) {
+    .league-th {
+        font-size: 120%;
+    }
 }
