@@ -5,13 +5,13 @@ const BarChart = function({ games }) {
 
     const generateBarChartData = function() {
         const data = {
-            labels: ["Home Wins", "Away Wins", "Home Losses", "Away Losses", "Home Draws", "Away Draws"],
+            labels: ["Home Wins", "Away Wins", "Home Losses", "Away Losses"],
             datasets: [
                 {
-                    backgroundColor: ["green", "green", "red", "red", "orange", "orange"],
+                    backgroundColor: ["green", "green", "red", "red"],
                     borderColor: "",
                     borderWidth: 2,
-                    hoverBackgroundColor: ["lightgreen", "lightgreen", "#F56776", "#F56776", "#FFD580", "#FFD580"],
+                    hoverBackgroundColor: ["lightgreen", "lightgreen", "#F56776", "#F56776"],
                     hoverBorderColor: "black",
                     data: []
                 }
@@ -21,15 +21,9 @@ const BarChart = function({ games }) {
         let awayWins = 0;
         let homeLosses = 0;
         let awayLosses = 0;
-        let homeDraws = 0;
-        let awayDraws = 0;
 
         for (let i=0; i<games.length; i++) {
-            if (calculateWon(games[i]) === "homedraw") {
-                homeDraws += 1;
-            } else if (calculateWon(games[i]) === "awaydraw") {
-                awayDraws += 1;
-            } else if (calculateWon(games[i]) === "homewon") {
+            if (calculateWon(games[i]) === "homewon") {
                 homeWins += 1;
             } else if (calculateWon(games[i]) === "awaywon") {
                 awayWins += 1;
@@ -39,7 +33,7 @@ const BarChart = function({ games }) {
                 awayLosses += 1;
             }
         }
-        const tempData = [homeWins, awayWins, homeLosses, awayLosses, homeDraws, awayDraws];
+        const tempData = [homeWins, awayWins, homeLosses, awayLosses];
         data.datasets[0].data = tempData;
         return data;
     }
@@ -57,9 +51,7 @@ const BarChart = function({ games }) {
             opponentScore = game.home_team_score;
             clippersLocation = "away";
         }
-        if (clippersScore === opponentScore) {
-            return clippersLocation + "draw";
-        } else if (clippersScore > opponentScore) {
+        if (clippersScore > opponentScore) {
             return clippersLocation + "won";
         } else if (clippersScore < opponentScore) {
             return clippersLocation + "lost";
@@ -91,7 +83,7 @@ const BarChart = function({ games }) {
                     },
                     title: {
                         display: true,
-                        text: "Home vs Away",
+                        text: "Home vs Away Results",
                         fontSize: 35,
                         fontColor: "black"
                     }

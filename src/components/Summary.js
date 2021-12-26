@@ -10,7 +10,6 @@ const Summary = function({ games }) {
         } else {
             let won = 0;
             let lost = 0;
-            let drew = 0;
             let clippersScore;
             let opponentScore;
             for (let i=0; i<games.length; i++) {
@@ -21,15 +20,13 @@ const Summary = function({ games }) {
                     clippersScore = games[i].visitor_team_score;
                     opponentScore = games[i].home_team_score;
                 }
-                if (clippersScore === opponentScore) {
-                    drew += 1;
-                } else if (clippersScore > opponentScore) {
+                if (clippersScore > opponentScore) {
                     won += 1;
                 } else if (clippersScore < opponentScore) {
                     lost += 1;
                 }
             }
-            return [won, lost, drew];
+            return [won, lost];
         }
     }
 
@@ -42,7 +39,6 @@ const Summary = function({ games }) {
                         <th>No. Games</th>
                         <th>Won</th>
                         <th>Lost</th>
-                        <th>Drew</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +46,6 @@ const Summary = function({ games }) {
                         <td>{games.length}</td>
                         <td>{calculateWon()[0]}</td>
                         <td>{calculateWon()[1]}</td>
-                        <td>{calculateWon()[2]}</td>
                     </tr>
                 </tbody>
             </table>

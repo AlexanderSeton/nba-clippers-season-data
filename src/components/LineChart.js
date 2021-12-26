@@ -43,9 +43,7 @@ const LineChart = function({ games }) {
             opponentScore = game.home_team_score;
             clippersLocation = "away";
         }
-        if (clippersScore === opponentScore) {
-            return clippersLocation + "draw";
-        } else if (clippersScore > opponentScore) {
+        if (clippersScore > opponentScore) {
             return clippersLocation + "won";
         } else if (clippersScore < opponentScore) {
             return clippersLocation + "lost";

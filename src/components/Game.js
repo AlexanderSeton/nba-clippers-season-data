@@ -13,9 +13,7 @@ const Game = function({game}) {
     const checkHomeResult = function() {
         const homeScore = game.home_team_score;
         const awayScore = game.visitor_team_score;
-        if (homeScore === awayScore) {
-            return "orange";
-        } else if (homeScore > awayScore) {
+        if (homeScore > awayScore) {
             return "green";
         } else if (homeScore < awayScore) {
             return "red";
@@ -25,9 +23,7 @@ const Game = function({game}) {
     const checkAwayResult = function() {
         const homeScore = game.home_team_score;
         const awayScore = game.visitor_team_score;
-        if (homeScore === awayScore) {
-            return "orange";
-        } else if (awayScore > homeScore) {
+        if (awayScore > homeScore) {
             return "green";
         } else if (awayScore < homeScore) {
             return "red";
@@ -48,7 +44,7 @@ const Game = function({game}) {
         <div className="game-div">
             <div className="top-game-data-div">
                 <div className="symbol-div">
-                    {checkResult()==="green" ? <p>&#127942;</p> : checkResult() === "red" ? <p>&#10060;</p> : <p>&#8265;</p>}
+                    {checkResult()==="green" ? <p>&#127942;</p> : <p>&#10060;</p>}
                 </div>
                 <p>{convertDate()}</p>
             </div>

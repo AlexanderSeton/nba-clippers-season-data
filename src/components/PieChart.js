@@ -7,36 +7,30 @@ const PieChart = function({ games }) {
         const data = {
             labels: [
                 "Won",
-                "Lost",
-                "Draw"
+                "Lost"
             ],
             datasets: [{
                 data: [],
                 backgroundColor: [
                 "green",
-                "red",
-                "orange"
+                "red"
                 ],
                 hoverBackgroundColor: [
                 "lightgreen",
-                "#F56776",
-                "#FFD580"
+                "#F56776"
                 ]
             }]
         };
         let won = 0;
         let lost = 0;
-        let draw = 0;
         for (let i=0; i<games.length; i++) {
             if (calculateWon(games[i]) === "won") {
                 won +=1
             } else if (calculateWon(games[i]) === "lost") {
                 lost += 1;
-            } else if (calculateWon(games[i]) === "draw") {
-                draw += 1;
             }
         }
-        const tempData = [won, lost, draw];
+        const tempData = [won, lost];
         data.datasets[0].data = tempData;
         return data;
     }
@@ -51,9 +45,7 @@ const PieChart = function({ games }) {
             clippersScore = game.visitor_team_score;
             opponentScore = game.home_team_score;
         }
-        if (clippersScore === opponentScore) {
-            return "draw";
-        } else if (clippersScore > opponentScore) {
+        if (clippersScore > opponentScore) {
             return "won";
         } else if (clippersScore < opponentScore) {
             return "lost";
@@ -70,7 +62,7 @@ const PieChart = function({ games }) {
                     responsive: true,
                     title: {
                         display: true,
-                        text: "Wins vs Losses vs Draws",
+                        text: "Wins vs Losses",
                         fontSize: 35,
                         fontColor: "black"
                     }
