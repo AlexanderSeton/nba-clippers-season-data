@@ -1,12 +1,17 @@
 .tables-div {
-    border: 2px solid black;
-    width: 95vw;
+    border: 2px solid red;
+    width: 99vw;
     display: flex;
     flex-flow: row;
     margin: 2% auto;
+    justify-content: space-evenly;
 }
 
 .table-div {
-    border: 1px solid black;
-    width: 50%;
+    border: 1px solid red;
+    width: 48.5%;
+}
+
+.table-div > h1 {
+    text-align: center;
 }

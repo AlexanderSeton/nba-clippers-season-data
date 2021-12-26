@@ -130,11 +130,11 @@ const TableContainer = function() {
             <Header2 />
             <div className="tables-div">
                 <div className="table-div">
-                    <h2>Eastern Conference</h2>
+                    <h1>Eastern Conference</h1>
                     {dataPrepared ? <Table teamData={teamsList["East"]}  /> : null}
                 </div>
                 <div className="table-div">
-                    <h2>Western Conference</h2>
+                    <h1>Western Conference</h1>
                     {dataPrepared ? <Table teamData={teamsList["West"]} /> : null}
                 </div>
             </div>

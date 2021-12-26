@@ -10,14 +10,14 @@ const Table = function({ teamData }) {
 
     return(
         <div>
-            <table>
+            <table className="league-table">
                 <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team</th>
-                        <th>Wins</th>
-                        <th>Losses</th>
-                        <th>Win %</th>
+                    <tr className="league-heading-tr">
+                        <th className="league-th">Rank</th>
+                        <th className="league-th">Team</th>
+                        <th className="league-th">Wins</th>
+                        <th className="league-th">Losses</th>
+                        <th className="league-th">Win %</th>
                     </tr>
                 </thead>
                 <tbody>
