@@ -1,0 +1,16 @@
+.team-select-h1 {
+    text-align: center;
+    padding-top: 2%;
+}
+
+.team-select-form-div {
+    border: 3px solid black;
+    width: 95vw;
+    margin: 1% auto;
+}
+
+.team-select-form {
+    border: 1px solid red;
+    text-align: center;
+    padding: 3%;
+}

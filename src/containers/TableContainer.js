@@ -84,8 +84,9 @@ const TableContainer = function() {
     }
 
     const getTeamsList = async function() {
-        const response = await (await fetch("https://www.balldontlie.io/api/v1/teams")).json();
-        const data = await response["data"];
+        const response = await fetch("https://www.balldontlie.io/api/v1/teams");
+        const formatResponse = await response.json();
+        const data = await formatResponse["data"];
         const tempTeamsList = {"East": [], "West": []};
         for (let team of data) {
             team["win"] = 0;
