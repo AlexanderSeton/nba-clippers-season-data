@@ -7,6 +7,12 @@
     font-size: 140%;
 }
 
+.nav-h2 {
+    border: 1px solid black;
+    border-radius: 0.5vw;
+    width: 100%;
+}
+
 .topnav a {
     float: left;
     display: block;
@@ -17,6 +23,7 @@
     /* padding: 1vh 2vw; */
     text-decoration: none;
     align-items: center;
+    width: 10%;
 }
 
 .topnav a:hover:not(.icon) {
@@ -33,7 +40,7 @@
     display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .topnav a {
         display: none;
     }
@@ -49,7 +56,7 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .topnav.responsive {
         position: relative;
         height: auto;
