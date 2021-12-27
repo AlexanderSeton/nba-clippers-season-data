@@ -1,7 +1,7 @@
 import React from "react";
 import { Pie } from "react-chartjs-3";
 
-const PieChart = function({ games }) {
+const PieChart = function({ games, teamAbreviation }) {
 
     const generatePieChartData = function() {
         const data = {
@@ -36,18 +36,18 @@ const PieChart = function({ games }) {
     }
 
     const calculateWon = function(game) {
-        let clippersScore = "";
+        let homeScore = "";
         let opponentScore = "";
-        if (game.home_team.abbreviation === "LAC") {
-            clippersScore = game.home_team_score;
+        if (game.home_team.abbreviation === teamAbreviation) {
+            homeScore = game.home_team_score;
             opponentScore = game.visitor_team_score;
         } else {
-            clippersScore = game.visitor_team_score;
+            homeScore = game.visitor_team_score;
             opponentScore = game.home_team_score;
         }
-        if (clippersScore > opponentScore) {
+        if (homeScore > opponentScore) {
             return "won";
-        } else if (clippersScore < opponentScore) {
+        } else if (homeScore < opponentScore) {
             return "lost";
         }
     }

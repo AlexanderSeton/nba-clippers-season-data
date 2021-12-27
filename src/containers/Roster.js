@@ -8,7 +8,7 @@ import TeamsContainer from "./TeamsContainer";
 const Roster = function() {
 
     const [roster, setRoster] = useState([]);
-    const [selectedTeam, setSelectedTeam] = useState();
+    const [selectedTeam, setSelectedTeam] = useState({});
     
     const firstRender = useRef(true);
 

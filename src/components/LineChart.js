@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-3";
 
 
-const LineChart = function({ games }) {
+const LineChart = function({ games, teamAbreviation }) {
 
     const generateLineChartData = function() {
         const data = {
@@ -34,7 +34,7 @@ const LineChart = function({ games }) {
         let clippersScore = "";
         let opponentScore = "";
         let clippersLocation = "";
-        if (game.home_team.abbreviation === "LAC") {
+        if (game.home_team.abbreviation === teamAbreviation) {
             clippersScore = game.home_team_score;
             opponentScore = game.visitor_team_score;
             clippersLocation = "home";
