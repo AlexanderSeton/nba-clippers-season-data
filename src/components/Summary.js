@@ -20,6 +20,8 @@ const Summary = function({ games, teamAbreviation }) {
         } else {
             let won = 0;
             let lost = 0;
+            let winPct = 0;
+            let winStreak = 0;
             let homeScore;
             let opponentScore;
             for (let i=0; i<games.length; i++) {
@@ -36,7 +38,22 @@ const Summary = function({ games, teamAbreviation }) {
                     lost += 1;
                 }
             }
-            return [won, lost];
+            winPct = ((won / (won + lost)) * 100).toFixed(1);
+            for (let i=0; i<games.length; i++) {
+                if (games[i].home_team.abbreviation === teamAbreviation) {
+                    homeScore = games[i].home_team_score;
+                    opponentScore = games[i].visitor_team_score;
+                } else {
+                    homeScore = games[i].visitor_team_score;
+                    opponentScore = games[i].home_team_score;  
+                }
+                if (homeScore > opponentScore) {
+                    winStreak += 1;
+                } else if (homeScore < opponentScore) {
+                    break;
+                }
+            }
+            return [won, lost, winPct, winStreak];
         }
     }
 
@@ -49,6 +66,8 @@ const Summary = function({ games, teamAbreviation }) {
                         <th className="s-th">No. Games</th>
                         <th className="s-th">Won</th>
                         <th className="s-th">Lost</th>
+                        <th className="s-th">Win %</th>
+                        <th className="s-th">Win Streak</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +75,8 @@ const Summary = function({ games, teamAbreviation }) {
                         <td className="s-td">{getLengths()}</td>
                         <td className="s-td">{calculateWon()[0]}</td>
                         <td className="s-td">{calculateWon()[1]}</td>
+                        <td className="s-td">{calculateWon()[2]}</td>
+                        <td className="s-td">{calculateWon()[3]}</td>
                     </tr>
                 </tbody>
             </table>
