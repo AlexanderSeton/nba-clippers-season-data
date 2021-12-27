@@ -38,7 +38,7 @@ const TeamsContainer = function({ handleTeamInput }) {
     return(
         <div className="team-select-form-div">
             <form className="team-select-form">
-                <label><h2>Choose A Team</h2></label>
+                <label><h2>Choose A Team: </h2></label>
                 {allTeams.length === 30 ? 
                 <select name="team-select-dropdown" className="team-select-dropdown" onChange={handleDropdownChange}>
                     <option value={allTeams[0]["abbreviation"]}>{allTeams[0]["full_name"]}</option>
