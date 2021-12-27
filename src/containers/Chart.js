@@ -7,12 +7,14 @@ import BarChart2 from "../components/BarChart2";
 import Summary from "../components/Summary";
 import LineChart from "../components/LineChart";
 import Header2 from "../components/Header2";
+import TeamsContainer from "./TeamsContainer";
 
 const Chart = function() {
 
     const [date, setDate] = useState("");
     const [games, setGames] = useState([]);
     const [seasonStartDate, setSeasonStartDate] = useState("2021-10-19");
+    const [selectedTeam, setSelectedTeam] = useState({});
 
     const firstUpdate = useRef(true);
 
@@ -26,7 +28,7 @@ const Chart = function() {
             return;
         }
         getData();
-    }, [date])
+    }, [selectedTeam])
 
     const getCurrentDate = async function() {
         let currentDate = new Date().toJSON().slice(0,10).replace(/-/g,'/');
@@ -42,33 +44,46 @@ const Chart = function() {
         await setDate(currentDate);
     }
 
-    const getData = async function() {
-        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=13&end_date=${date}&start_date=${seasonStartDate}`);
+     const getData = async function() {
+        const teamId = await parseInt(selectedTeam["id"]);
+        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=${teamId}&end_date=${date}&start_date=${seasonStartDate}`);
         const data = await response.json();
-        const justGames = await data.data;
+        const justGames = await data["data"];
         const sortedByDateGames = await justGames.sort(function(a, b) {
             return a.id - b.id;
         })
-        await setGames(sortedByDateGames);
+        // check for bad data (games with no points for either team)
+        for (let game of sortedByDateGames) {
+            if (game["home_team_score"] === 0 || game["visitor_team_score"] === 0) {
+                let indexGameToDelete = sortedByDateGames.indexOf(game);
+                sortedByDateGames.splice(indexGameToDelete, 1);
+            }
+        }
+        setGames(sortedByDateGames);
+    }
+
+    const handleTeamInput = (selectedTeam) => {
+        setSelectedTeam(selectedTeam);
     }
 
     return(
         <div className="charts-container-div">
             <Header2 />
-            {games!==[] ?<Summary games={games} /> : null}
+            <TeamsContainer handleTeamInput={handleTeamInput} />
+            {games!==[] && selectedTeam!=={} ?<Summary games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
             <div className="charts-div">
                 <div className="pie-chart-div">
-                    {games!==[] ? <PieChart games={games} /> : null}
+                    {games!==[] && selectedTeam!=={} ? <PieChart games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
                 </div>
                 <div className="bar-chart-div">
-                    {games!==[] ? <BarChart games={games} /> : null}
+                    {games!==[] && selectedTeam!=={} ? <BarChart games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
                 </div>
             </div>
             <div className="line-chart-div">
-                    {games!==[] ? <LineChart games={games} /> : null}
+                    {games!==[] && selectedTeam!=={} ? <LineChart games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
             </div>
             <div className="bar-chart-2-div">
-                {games!==[] ? <BarChart2 games={games} /> : null}
+                {games!==[] && selectedTeam!=={} ? <BarChart2 games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
             </div>
         </div>
     )

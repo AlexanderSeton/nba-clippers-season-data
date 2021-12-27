@@ -4,13 +4,14 @@ import GamesContainer from './containers/GamesContainer';
 import Chart from './containers/Chart.js';
 import Roster from './containers/Roster';
 import TableContainer from './containers/TableContainer';
+import TeamsContainer from './containers/TeamsContainer';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/table" element={<TableContainer />} exact/>          
+          <Route path="/" element={<TableContainer />} exact/>
           <Route path="/games" element={<GamesContainer />} exact/>
           <Route path="/charts" element={<Chart />} exact/>
           <Route path="/roster" element={<Roster />} exact/>

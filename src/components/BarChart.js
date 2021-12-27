@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-3";
 
-const BarChart = function({ games }) {
+const BarChart = function({ games, teamAbreviation }) {
 
     const generateBarChartData = function() {
         const data = {
@@ -42,7 +42,7 @@ const BarChart = function({ games }) {
         let clippersScore = "";
         let opponentScore = "";
         let clippersLocation = "";
-        if (game.home_team.abbreviation === "LAC") {
+        if (game.home_team.abbreviation === teamAbreviation) {
             clippersScore = game.home_team_score;
             opponentScore = game.visitor_team_score;
             clippersLocation = "home";
