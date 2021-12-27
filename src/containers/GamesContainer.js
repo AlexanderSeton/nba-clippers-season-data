@@ -13,13 +13,18 @@ const GamesContainer = function() {
     const [games, setGames] = useState([]);
     const [selectedTeam, setSelectedTeam] = useState({});
 
-    const firstUpdate = useRef(true);
+    const firstRender = useRef(true);
 
     useEffect(() => {
         getCurrentDate();
     }, [])
 
     useEffect(() => {
+        if (firstRender.current) {
+            firstRender.current = false;
+            console.log("returned")
+            return;
+        }
         getData();
     }, [selectedTeam])
 
