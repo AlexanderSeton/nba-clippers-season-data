@@ -2,13 +2,13 @@ import React from "react";
 import Game from "./Game";
 import "./static/GameList.css";
 
-const GamesList = function({games}) {
+const GamesList = function({ games, teamAbreviation }) {
 
     const gameItems = games.map((game, index) => {
         if (game["home_team_score"]===0 || game["visitor_team_score"]===0) {
             return;
         }
-        return <Game game={game} key={index} />
+        return <Game game={game} key={index} teamAbreviation={teamAbreviation} />
     })
 
     return(

@@ -64,7 +64,7 @@ const GamesContainer = function() {
                 <TeamsContainer handleTeamInput={handleTeamInput} />
             </div>
             {games!==[] && selectedTeam!=={} ?<Summary games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
-            {games!==[] && selectedTeam!=={} ?<GamesList games={games} /> : null}
+            {games!==[] && selectedTeam!=={} ?<GamesList games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
         </div>
     )   
 }

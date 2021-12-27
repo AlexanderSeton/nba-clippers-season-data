@@ -2,7 +2,7 @@ import React from "react";
 import reactDom from "react-dom";
 import "./static/Game.css";
 
-const Game = function({game}) {
+const Game = function({ game, teamAbreviation }) {
 
     const convertDate = function() {
         const date = new Date(game.date);
@@ -31,11 +31,12 @@ const Game = function({game}) {
     }
 
     const checkResult = function() {
-        if (game.home_team.name === "Clippers") {
+        if (game.home_team.abbreviation === teamAbreviation) {
             const result = checkHomeResult();
             return result;
         } else {
             const result = checkAwayResult();
+            console.log("checkAWAYresult")
             return result;
         }
     }
