@@ -74,10 +74,10 @@ const TableContainer = function() {
             return a["id"] - b["id"];
         })
         // check for bad data (games with no points for either team)
-        for await (let game of sortedByDateGames) {
+        for (let game of sortedByDateGames) {
             if (game["home_team_score"] === 0 || game["visitor_team_score"] === 0) {
-                const indexGameToDelete = await sortedByDateGames.indexOf(game);
-                await sortedByDateGames.splice(indexGameToDelete, 1);
+                const indexGameToDelete = sortedByDateGames.indexOf(game);
+                sortedByDateGames.splice(indexGameToDelete, 1);
             }
         }
         await setAllGames(sortedByDateGames);
@@ -108,7 +108,7 @@ const TableContainer = function() {
                 const awayTeamIndex = await teamsList[game["visitor_team"]["conference"]].findIndex((team) => team["id"] === game["visitor_team"]["id"]);
                 teamsList[game["home_team"]["conference"]][homeTeamIndex]["win"] += 1;
                 teamsList[game["visitor_team"]["conference"]][awayTeamIndex]["loss"] += 1;
-            } else {
+            } else if (game["home_team_score"] < game["visitor_team_score"]) {
                 const homeTeamIndex = await teamsList[game["home_team"]["conference"]].findIndex((team) => team["id"] === game["home_team"]["id"]);
                 const awayTeamIndex = await teamsList[game["visitor_team"]["conference"]].findIndex((team) => team["id"] === game["visitor_team"]["id"]);
                 teamsList[game["home_team"]["conference"]][homeTeamIndex]["loss"] += 1;

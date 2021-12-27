@@ -36,7 +36,6 @@ const Game = function({ game, teamAbreviation }) {
             return result;
         } else {
             const result = checkAwayResult();
-            console.log("checkAWAYresult")
             return result;
         }
     }
