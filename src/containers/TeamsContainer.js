@@ -2,14 +2,24 @@ import React, { useEffect, useState, useRef } from "react";
 import "./static/TeamsContainer.css";
 import Header2 from "../components/Header2.js";
 
-const TeamsContainer = function() {
+const TeamsContainer = function({ handleTeamInput }) {
 
     const [team, setTeam] = useState();
     const [allTeams, setAllTeams] = useState([]);
 
+    const firstRender = useRef(true);
+
     useEffect(() => {
         getTeamsList();
     }, [])
+
+    useEffect(() => {
+        if (firstRender.current) {
+            firstRender.current = false;
+            return;
+        }
+        handleTeamInput(team);
+    }, [team])
 
     const getTeamsList = async function() {
         const response = await fetch("https://www.balldontlie.io/api/v1/teams");

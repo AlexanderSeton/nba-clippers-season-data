@@ -5,6 +5,9 @@ import "./static/GameList.css";
 const GamesList = function({games}) {
 
     const gameItems = games.map((game, index) => {
+        if (game["home_team_score"]===0 || game["visitor_team_score"]===0) {
+            return;
+        }
         return <Game game={game} key={index} />
     })
 
