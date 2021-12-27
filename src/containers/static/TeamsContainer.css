@@ -32,3 +32,16 @@
     width: 30vw;
     font-size: 150%;
 }
+
+@media screen and (max-width: 800px) {
+    .team-select-form-div {
+        width: 95vw;
+        margin: auto;
+        margin-top: 5%;
+        padding-bottom: 5%;
+    }
+    .team-select-dropdown {
+        width: 70vw;
+        margin: auto;
+    }
+}

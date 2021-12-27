@@ -20,9 +20,6 @@ const GamesContainer = function() {
     }, [])
 
     useEffect(() => {
-        if (selectedTeam === {}) {
-            return;
-        }
         getData();
     }, [selectedTeam])
 
@@ -34,9 +31,10 @@ const GamesContainer = function() {
     }
 
     const getData = async function() {
-        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=${selectedTeam["id"]}&end_date=${date}&start_date=${seasonStartDate}`);
+        const teamId = await parseInt(selectedTeam["id"]);
+        const response = await fetch(`https://www.balldontlie.io/api/v1/games?per_page=100&seasons[]=2021&team_ids[]=${teamId}&end_date=${date}&start_date=${seasonStartDate}`);
         const data = await response.json();
-        const justGames = await data.data;
+        const justGames = await data["data"];
         const sortedByDateGames = await justGames.sort(function(a, b) {
             return b.id - a.id;
         })
@@ -57,7 +55,9 @@ const GamesContainer = function() {
     return(
         <div className="games-container-div">
             <Header2 />
-            <TeamsContainer handleTeamInput={handleTeamInput} />
+            <div className="games-container-team-selector">
+                <TeamsContainer handleTeamInput={handleTeamInput} />
+            </div>
             {games!==[] && selectedTeam!=={} ?<Summary games={games} teamAbreviation={selectedTeam["abbreviation"]} /> : null}
             {games!==[] && selectedTeam!=={} ?<GamesList games={games} /> : null}
         </div>

@@ -12,7 +12,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TableContainer />} exact/>
-          <Route path="/teams" element={<TeamsContainer />} exact/>
           <Route path="/games" element={<GamesContainer />} exact/>
           <Route path="/charts" element={<Chart />} exact/>
           <Route path="/roster" element={<Roster />} exact/>

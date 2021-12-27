@@ -20,9 +20,6 @@ const Header2 = function() {
             <NavLink to="/" style={{ textDecoration: 'none' }}>
                 <h2 className="nav-h2">Table</h2>
             </NavLink>
-            <NavLink to="/teams" style={{ textDecoration: 'none' }}>
-                <h2 className="nav-h2">Teams</h2>
-            </NavLink>
             <NavLink to="/games" style={{ textDecoration: 'none' }}>
                 <h2 className="nav-h2">Games</h2>
             </NavLink>
