@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Header2 from "../components/Header2";
 import Table from "../components/Table";
 import "./static/TableContainer.css";
+import Loading from "../components/Loading";
+import { FadingBalls } from "react-cssfx-loading/lib";
 
 const TableContainer = function() {
 
@@ -138,11 +140,21 @@ const TableContainer = function() {
             <div className="tables-div">
                 <div className="table-div">
                     <h1>Eastern Conference</h1>
-                    {dataPrepared ? <Table teamData={teamsList["East"]}  /> : null}
+                    {dataPrepared ? 
+                        <Table teamData={teamsList["East"]}  /> : 
+                        <div className="loading-animation">
+                            <p><FadingBalls /></p>
+                        </div>
+                    }
                 </div>
                 <div className="table-div">
                     <h1>Western Conference</h1>
-                    {dataPrepared ? <Table teamData={teamsList["West"]} /> : null}
+                    {dataPrepared ? 
+                        <Table teamData={teamsList["West"]} /> : 
+                        <div className="loading-animation">
+                            <p><FadingBalls /></p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

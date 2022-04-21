@@ -16,6 +16,12 @@
     text-align: center;
 }
 
+.loading-animation p {
+    padding: 5%;
+    border: 1px solid red;
+    padding-left: 45%;
+}
+
 @media screen and (max-width: 950px) {
     .tables-div {
         width: 95vw;
@@ -25,5 +31,8 @@
         width: 100%;
         padding-top: 5%;
         padding-bottom: 2.5%;
+    }
+    .loading-animation p {
+        padding-left: 40vw;
     }
 }
