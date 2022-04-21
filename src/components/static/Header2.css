@@ -75,11 +75,17 @@
     .topnav.responsive a:first-child:not(.icon) {
         padding-top: 12.5%;
     }
-    /* attempted title border fix */
+    /* title border fix */
     .nav-h2 {
         border: 1px solid black;
         border-radius: 0.5vw;
         width: 300%;
         text-align: center;
+    }
+    .nav-h2:hover {
+        background-color: #ddd;
+    }
+    .topnav a:hover:not(.icon) {
+        background-color: grey;
     }
 }
